@@ -15,6 +15,7 @@ class AppClass extends React.Component{
         this.state = {
             orderBy: 'name',
             orderDir: 'asc',
+            searchText: '',
             ListTask: ListTask,
         }
         this.onSelectSort = this.onSelectSort.bind();
@@ -32,26 +33,53 @@ class AppClass extends React.Component{
         // console.log(listTasks);
         this.setState({ListTask});
       }
+    onChangeSearchText = (searchText) => {
+        this.setState({
+            searchText: searchText,
+        });
+       
+    }
+    listTasksSearch = () =>{
+        return this.state.ListTask.filter(task=> {
+            let nameLower = task.name.toLowerCase(),
+                queryLower = this.state.searchText.toLowerCase();
+                return nameLower.indexOf(queryLower) !== -1;
+          });
+          
+    }
+    listTasksSearchAndSort = () => {
+        let returnIndex = 1; //default for asc
+        if(this.state.orderDir === 'asc') returnIndex = -1;
+        this.listTasksSearch.sort((a,b)=>{
+          if(a[this.state.orderBy] < b[this.state.orderBy]) return returnIndex;
+          else if(a[this.state.orderBy] > b[this.state.orderBy] ) return (-1)*returnIndex;
+          return 0;
+        })
+    }
+    handleDeleteTask =(task)=>{
     
+        let newList = ListTask.filter(o=> o.name !== task.name);
+        this.setState({ListTask: newList});
+        
+      }
     render(){
-        let {orderBy, orderDir, ListTask}  = this.state;
-        let {onSelectSort,onChangeAddNewTask}  = this;
-        let injectedProps = {
-            ListTask,
-            
-        }
+        let {orderBy, orderDir,searchText, ListTask}  = this.state;
+        let {onSelectSort,onChangeAddNewTask,onChangeSearchText,handleDeleteTask,listTasksSearch,listTasksSearchAndSort}  = this;
+        
         let injectedControl = {
             orderBy, 
             orderDir,
+            searchText,
             onSelectSort,
             onChangeAddNewTask,
+            onChangeSearchText,
         }
       
         return(
             <Container>
-                 <HeaderClass />
+                <HeaderClass />
                 <ControlClass {...injectedControl} />
-                <ListTasksTableClass {...injectedProps}/>
+                <ListTasksTableClass ListTask={listTasksSearch()} handleDeleteTask={handleDeleteTask}/>
             </Container>
         )
     }

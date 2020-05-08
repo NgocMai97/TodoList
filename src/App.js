@@ -29,7 +29,7 @@ function App() {
   }
 
   function handleDeleteTask(task){
-    console.log(task);
+    
     let newList = listTasks.filter(o=> o.name !== task.name);
     setListTasks(newList);
   }

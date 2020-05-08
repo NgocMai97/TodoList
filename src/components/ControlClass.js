@@ -11,10 +11,11 @@ class ControlClass extends React.Component{
     
     }
     render(){
-        let {orderBy, orderDir, onSelectSort,onChangeAddNewTask}  = this.props;
+        let {orderBy, orderDir,searchText, onSelectSort,onChangeAddNewTask,onChangeSearchText}  = this.props;
         let injectedControl = {
             orderBy, 
             orderDir,
+
             onSelectSort,
             onChangeAddNewTask,
         }
@@ -24,7 +25,7 @@ class ControlClass extends React.Component{
                     <Col xs={12} lg={6}>
                     <Row> 
                         <ControlSortClass {...injectedControl}/>
-                        <ControlSearchClass />
+                        <ControlSearchClass searchText={searchText} onChangeSearchText={onChangeSearchText}/>
                     </Row>
                     </Col>
                     <Col xs={12} lg={6}>

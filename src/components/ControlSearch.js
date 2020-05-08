@@ -7,9 +7,11 @@ import FormControl from "react-bootstrap/FormControl";
 
 export default function ControlSearch({searchText,onChangleSearchText}) {
   let [text, setText] = useState('');
+  
   useEffect(() => {
     setText(searchText);
   }, [searchText])
+
   function handleChangeText(e){
     
       onChangleSearchText(e.target.value);

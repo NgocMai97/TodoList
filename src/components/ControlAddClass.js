@@ -25,15 +25,15 @@ export default class ControlAddClass extends React.Component {
         // });
         this.setState({
           task: {
-            ...task,
+            ...this.state.task,
             [keyField]: e.target.value
           }
           
         })
-        
+       
       }
     )
-    
+   
   }
   addTaskShow = () => {
     return document
@@ -41,18 +41,19 @@ export default class ControlAddClass extends React.Component {
       .classList.toggle("form-show");
   };
   handleSubmit = () =>{
-   
     this.setState({
       task: {
+        ...this.state.task,
         id:uuidv4,
       }
     })
+    
     this.props.onChangeAddNewTask(this.state.task);
   }
   render() {
     let {addTaskShow, handleChangeTask,handleSubmit} = this;
     let {task} = this.state;
-    console.log(task);
+    
     return (
       <>
         <div className="form-group add-task">
@@ -83,7 +84,7 @@ export default class ControlAddClass extends React.Component {
               as="select"
               required="required"
               id="taskLevel"
-              onChange={handleChangeTask("level")}
+              onChange={handleChangeTask('level')}
             >
               {Level.map((o, index) => (
                 <option key={o.name + index} value={index}>

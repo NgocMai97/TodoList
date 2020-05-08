@@ -10,7 +10,7 @@ class ListTasksTableClass extends React.Component {
         
     }
   render(){
-      let {ListTask} = this.props;
+      let {ListTask,handleDeleteTask} = this.props;
       return (
     <>
       <div className="panel panel-success">
@@ -26,7 +26,7 @@ class ListTasksTableClass extends React.Component {
           </thead>
           <tbody>
               { ListTask.map((item, index) => {
-                  return <ListTasksItemClass item={item} index={index} key={index}/>
+                  return <ListTasksItemClass item={item} index={index} key={index} handleDeleteTask={handleDeleteTask}/>
                 })
 
                }
