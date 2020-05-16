@@ -5,7 +5,12 @@ import Table from 'react-bootstrap/Table';
 import ListTasksItem from './ListTasksItem';
 function ListTasksTable({listTasks, handleDeleteTask}) {
   let [taskSelected, setTaskSelected] = useState(null);
-
+  console.log(taskSelected);
+  function handleSetTaskSelected(item){
+    setTaskSelected(item);
+    handleDeleteTask(item);
+    setTaskSelected(null);
+  }
   return (
     <>
       <div className="panel panel-success">
@@ -21,7 +26,7 @@ function ListTasksTable({listTasks, handleDeleteTask}) {
           </thead>
           <tbody>
               { listTasks.map((item, index) => {
-                  return <ListTasksItem item={item} index={index} key={index}setTaskSelected={setTaskSelected} handleDeleteTask={handleDeleteTask}/>
+                  return <ListTasksItem item={item} index={index} key={index} handleSetTaskSelected={handleSetTaskSelected}/>
                 })
 
                }

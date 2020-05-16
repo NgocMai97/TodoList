@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import { Level } from "../constants";
-export default function ListTasksItem({ item, index,setTaskSelected, handleDeleteTask }) {
+export default function ListTasksItem({ item, index,handleSetTaskSelected}) {
     let [level] = useState(Level);
-   function _handleDeleteTask(){
-    setTaskSelected(item);
-    console.log(item);
-    handleDeleteTask(item);
-   }
+    
   return (
     <>
       <tr>
@@ -19,7 +15,7 @@ export default function ListTasksItem({ item, index,setTaskSelected, handleDelet
           <button type="button" className="btn btn-warning">
             Edit
           </button>
-          <button type="button" className="btn btn-danger" onClick={_handleDeleteTask}>
+          <button type="button" className="btn btn-danger" onClick={()=> handleSetTaskSelected(item)}>
             Delete
           </button>
         </td>

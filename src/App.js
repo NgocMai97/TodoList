@@ -29,7 +29,6 @@ function App() {
   }
 
   function handleDeleteTask(task){
-    
     let newList = listTasks.filter(o=> o.name !== task.name);
     setListTasks(newList);
   }
