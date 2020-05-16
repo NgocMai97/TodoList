@@ -57,9 +57,11 @@ class AppClass extends React.Component{
         })
     }
     handleDeleteTask =(task)=>{
-    
+        console.log(task);
         let newList = ListTask.filter(o=> o.name !== task.name);
-        this.setState({ListTask: newList});
+        this.setState({ListTask: [...newList]});
+        console.log(newList);
+        console.log(ListTask);
         
       }
     render(){

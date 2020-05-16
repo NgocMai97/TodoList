@@ -7,22 +7,19 @@ import ListTasksItemClass from './ListTasksItemClass';
 class ListTasksTableClass extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-          taskSelected:null,
+        this.state={
+          taskSelected: null,
         }
     }
-    handleSetTaskSelected = (item) =>{
-      this.setState({taskSelected: item});
-      
+    handleSetTaskSelected = (item) => {
+      // this.setState({
+      //   taskSelected:item,
+      // })
       this.props.handleDeleteTask(item);
-      
-    }
-    componentDidMount(){
-      this.setState({taskSelected:null});
+     // setTaskSelected(null);
     }
   render(){
       let {ListTask} = this.props;
-    
       return (
     <>
       <div className="panel panel-success">
@@ -38,7 +35,11 @@ class ListTasksTableClass extends React.Component {
           </thead>
           <tbody>
               { ListTask.map((item, index) => {
+<<<<<<< HEAD
                   return <ListTasksItemClass item={item} index={index} key={index} handleDeleteTask={this.props.handleDeleteTask}/>
+=======
+                  return <ListTasksItemClass item={item} index={index} key={index} handleSetTaskSelected={this.handleSetTaskSelected}/>
+>>>>>>> 09c1df0fc04e2cd895766efd5c10d048613a9a55
                 })
 
                }
