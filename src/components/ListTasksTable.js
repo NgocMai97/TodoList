@@ -21,7 +21,7 @@ function ListTasksTable({listTasks, handleDeleteTask}) {
           </thead>
           <tbody>
               { listTasks.map((item, index) => {
-                  return <ListTasksItem item={item} index={index} key={index}setTaskSelected={setTaskSelected} handleDeleteTask={handleDeleteTask}/>
+                  return <ListTasksItem item={item} index={index} key={index} setTaskSelected={setTaskSelected} handleDeleteTask={handleDeleteTask}/>
                 })
 
                }

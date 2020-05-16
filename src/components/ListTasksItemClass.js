@@ -8,13 +8,11 @@ export default class ListTasksItemClass extends React.Component {
         };
        
     }
-    _handleDeleteTask(){
-      this.props.handleDeleteTask(this.props.item);
-    }
+   
   render() {
       let {item, index} = this.props;
       let {level} = this.state;
-    
+     
     return (
       <>
         <tr>
@@ -32,7 +30,11 @@ export default class ListTasksItemClass extends React.Component {
             <button
               type="button"
               className="btn btn-danger"
-              onClick={()=>this._handleDeleteTask()}
+              onClick={
+                () => {
+                  this.props.handleDeleteTask(item);
+                }
+                }
             >
               Delete
             </button>
