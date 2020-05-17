@@ -30,15 +30,12 @@ export default class ListTasksItemClass extends React.Component {
             <button
               type="button"
               className="btn btn-danger"
-<<<<<<< HEAD
-              onClick={
-                () => {
-                  this.props.handleDeleteTask(item);
+              onClick={()=> {
+                this.props.handleModalDelete();
+                this.props.handleSetTaskSelected(item);
                 }
-                }
-=======
-              onClick={()=>this.props.handleSetTaskSelected(item)}
->>>>>>> 09c1df0fc04e2cd895766efd5c10d048613a9a55
+              }
+              
             >
               Delete
             </button>

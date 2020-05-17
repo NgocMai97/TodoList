@@ -1,0 +1,63 @@
+*,body{
+    padding:0;
+}
+.tcl-modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    z-index: 999;
+}
+.tcl-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000026;
+    cursor: pointer;
+   
+}
+.modal-content {
+    border: 1px solid #909090;
+    width: 30%;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%);
+    background: #fff;
+    padding: 10px 20px;
+}
+.tcl-modal-header {
+    font-size: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d9d9d9;
+    position: relative;
+}
+.tcl-modal-header ion-icon{
+    position: absolute;
+    right: 0px;
+    background-color: aquamarine;
+    padding:5px;
+    cursor: pointer;
+}
+.tcl-modal-body {
+    padding: 10px 0;
+}
+.tcl-modal-body {
+    padding: 10px 0;
+}
+.tcl-modal-footer button {
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    padding: 5px 20px;
+    margin: 0 5px;
+}
+body.tcl-open-modal{
+    overflow: hidden;
+}
+.tcl-modal-wrapper.show {
+    display: block;
+}

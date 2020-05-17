@@ -19,21 +19,14 @@ export default class ControlAddClass extends React.Component {
   handleChangeTask =(keyField)=>{
     return(
       (e) => {
-        // setTask({
-        //   ...task,
-        //   [keyField]: e.target.value
-        // });
         this.setState({
           task: {
             ...this.state.task,
             [keyField]: e.target.value
           }
-          
         })
-       
       }
     )
-   
   }
   addTaskShow = () => {
     return document
@@ -41,14 +34,15 @@ export default class ControlAddClass extends React.Component {
       .classList.toggle("form-show");
   };
   handleSubmit = () =>{
-    this.setState({
-      task: {
-        ...this.state.task,
-        id:uuidv4,
-      }
-    })
-    
-    this.props.onChangeAddNewTask(this.state.task);
+    // this.setState({
+    //   task: {
+    //     id: uuidv4(),
+    //     ...this.state.task,
+        
+    //   }
+    // })
+    let data = { id: uuidv4(), ...this.state.task}
+    this.props.onChangeAddNewTask(data);
   }
   render() {
     let {addTaskShow, handleChangeTask,handleSubmit} = this;
